@@ -28,6 +28,7 @@ html {
     display: flex;
     gap: 10px;
     margin: 20px 0;
+    margin-left: 10px;
 }
 
 #search-input, #price-filter {
