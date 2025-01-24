@@ -24,7 +24,7 @@ html {
 .filter-container {
     position: sticky;
     top: 20px;
-    z-index: 1009; /* Чтобы инпут был поверх других элементов */
+    z-index: 109; /* Чтобы инпут был поверх других элементов */
     display: flex;
     gap: 10px;
     margin: 20px 0;
@@ -139,17 +139,6 @@ h1, h2, h3 {
 
 .header .logo span {
     color: #ffe082;
-}
-
-.navigation{
-    position: fixed;
-    top: 0; /* Располагаем панель вверху */
-    height: 50px;
-    right: 0;
-    left: 0;
-    width: 100%; /* Ширина на всю ширину экрана */
-    background-color:rgb(121, 161, 161); /* Цвет фона */
-    z-index: 1000; /* Чтобы панель была поверх других элементов */
 }
 
 .nav ul {
