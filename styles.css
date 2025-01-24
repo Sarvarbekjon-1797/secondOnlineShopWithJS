@@ -22,6 +22,9 @@ html {
 }
 
 .filter-container {
+    position: sticky;
+    top: 20px;
+    z-index: 1009; /* Чтобы инпут был поверх других элементов */
     display: flex;
     gap: 10px;
     margin: 20px 0;
@@ -104,10 +107,7 @@ body {
     padding: 0;
     color: #333;
     line-height: 1.6;
-    background: rgba(255, 255, 210, 0.1)
-    
-
-
+    background: rgba(255, 255, 210, 0.2);
 }
 
 h1, h2, h3 {
@@ -140,6 +140,17 @@ h1, h2, h3 {
     color: #ffe082;
 }
 
+.navigation{
+    position: fixed;
+    top: 0; /* Располагаем панель вверху */
+    height: 50px;
+    right: 0;
+    left: 0;
+    width: 100%; /* Ширина на всю ширину экрана */
+    background-color:rgb(121, 161, 161); /* Цвет фона */
+    z-index: 1000; /* Чтобы панель была поверх других элементов */
+}
+
 .nav ul {
     list-style: none;
     display: flex;
@@ -162,8 +173,7 @@ h1, h2, h3 {
     background: url('./imgs/background.png') no-repeat center center/cover;
     text-align: center;
     padding: 80px 0;
-    color: white
-   
+    color: white;
 }
 
 .home h2 {
