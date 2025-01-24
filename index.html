@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store with Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">My<span>Shop</span></h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Main</a></li>
+                    <li><a href="#catalog">Catalog</a></li>
+                    <li><a href="#" id="cart-button">Contact</a></li>
+                    <div class="cart-indicator">0</div>
+                    <button class="cart-button">Cart</button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="filter-container">
+        <input type="text" id="search-input" placeholder="Search products...">
+        <select id="price-filter">
+            <option value="all">All prices</option>
+            <option value="under-20">Under $20</option>
+            <option value="20-30">$20 - $30</option>
+            <option value="above-30">Above $30</option>
+        </select>
+    </div>
+    <section id="home" class="home">
+        <div class="container">
+            <h2>Your shopping starts here</h2>
+            <p>The best selection of products, exclusive offers, and quality service.</p>
+            <a href="#catalog" class="btn">Buy Now</a>
+        </div>
+    </section>
+
+    <section id="catalog" class="catalog">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Cart</h2>
+            <div class="cart-items"><div class="modal-content"><p>Your cart is still empty</p></div></div>
+            <p id="cart-total">Total: 0 ₽</p>
+            <button class="btnModal" id="checkout">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <footer id="contacts" class="footer">
+        <div class="container">
+            <p>&copy; 2025 MyShop. All rights reserved.</p>
+            <p>Email: support@myshop.com | Phone: +1 (800) 555-35-35</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
