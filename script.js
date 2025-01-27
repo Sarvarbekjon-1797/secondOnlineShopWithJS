@@ -27,7 +27,7 @@ function applyFilter(){
   }
 
   if(filteredProducts.length ===0){
-    productGrid.innerHTML = `<h1>There are no products matching the filter</h1>`
+    productGrid.innerHTML = `<h1 style="color:red">There are no products matching the filter</h1>`
   }else{
     renderProducts(filteredProducts)
   }
@@ -35,6 +35,7 @@ function applyFilter(){
 
 searchInput.addEventListener('input',applyFilter);
 priceFilter.addEventListener('change',applyFilter);
+
 
 /* function to render products on the page */
 function renderProducts(filteredProducts){
@@ -50,6 +51,32 @@ function renderProducts(filteredProducts){
     `
     productGrid.appendChild(productCard)
   });
+
+  /*Adds product to the cart.*/
+
+  addToCart = productGrid.querySelectorAll('.add-to-cart');
+addToCart.forEach((btn)=>{
+  btn.addEventListener('click', ()=>{
+    const productName = btn.getAttribute('data-product'),
+          productPrice = btn.getAttribute('data-price'),
+          parentDiv = btn.closest('.product'),
+          image = parentDiv.querySelector('img'),
+          imgSrc = image.getAttribute('src')
+    
+
+    const IsIncart = cart.some(item => item.name === productName);
+
+    if(!IsIncart){
+      cart.push({name:productName, price:productPrice,imgSrc, quantity:1});
+    update();
+    updateIndicator();
+    }else{
+      alert('This product is already in the cart')
+    }
+    
+  })
+});
+
 };
 
 renderProducts(products);
@@ -60,7 +87,7 @@ let cart = [];
 const modal = document.querySelector('.modal'),
       openModal = document.querySelector('.cart-button'),
       closeModal = document.querySelector('.close'),
-      addToCart = document.querySelectorAll('.add-to-cart'),
+      
       cartItems = document.querySelector('.cart-items'),
       indicator = document.querySelector('.cart-indicator')
 
@@ -85,28 +112,6 @@ closeModal.addEventListener('click',()=>{
         }
       });
 
-/*Adds product to the cart.*/
-addToCart.forEach((btn)=>{
-  btn.addEventListener('click', ()=>{
-    const productName = btn.getAttribute('data-product'),
-          productPrice = btn.getAttribute('data-price'),
-          parentDiv = btn.closest('.product'),
-          image = parentDiv.querySelector('img'),
-          imgSrc = image.getAttribute('src')
-    
-
-    const IsIncart = cart.some(item => item.name === productName);
-
-    if(!IsIncart){
-      cart.push({name:productName, price:productPrice,imgSrc, quantity:1});
-    update();
-    updateIndicator();
-    }else{
-      alert('uje est')
-    }
-    
-  })
-});
 
 /*Updates the cart items in the modal*/    
 function update(){
